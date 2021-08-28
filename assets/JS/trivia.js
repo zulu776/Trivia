@@ -6,6 +6,7 @@ let questions = [];     //Array with question from API
 let score = 0 ;         //Number of correct answers
 
 let i=0;                //Number of iterations per Question
+let q=i+1;
 
 let correctAnswer;
 
@@ -47,23 +48,33 @@ const showQuestion = () => {
         if(questions[i].incorrect_answers.length > 1) {
             container.innerHTML = 
             `
-            <div>
-                <p class="questionsFill">${questions[i].question}</div>
-                <button onClick="viewAnswer(this)">${questions[i].correct_answer}</button>
-                <button onClick="viewAnswer(this)">${questions[i].incorrect_answers[0]}</button>
-                <button onClick="viewAnswer(this)">${questions[i].incorrect_answers[1]}</button>
-                <button onClick="viewAnswer(this)">${questions[i].incorrect_answers[2]}</button>
+            <div class="questionsDiv">
+                <p class="questionsFill">${questions[i].question}</p>
+                <div class="buttonDiv">
+                    <button class="buttonsAnswer" onClick="viewAnswer(this)">${questions[i].correct_answer}</button>
+                    <button class="buttonsAnswer" onClick="viewAnswer(this)">${questions[i].incorrect_answers[0]}</button>
+                    <button class="buttonsAnswer" onClick="viewAnswer(this)">${questions[i].incorrect_answers[1]}</button>
+                    <button class="buttonsAnswer" onClick="viewAnswer(this)">${questions[i].incorrect_answers[2]}</button>
+                </div> 
                 <button class="exitButton" onClick="exitView(this)">Exit</button>
+            </div>
+            <div class="numeroPreguntas">
+                <p class="conteoPreguntas">${q} / ${questions.length} </p>
             </div>
             `
         } else {
             container.innerHTML =
             `
-            <div>
-                <p class="questionsFill">${questions[i].question}</div>
-                <button onClick="viewAnswer(this)">${questions[i].correct_answer}</button>
-                <button onClick="viewAnswer(this)">${questions[i].incorrect_answers[0]}</button>
+            <div class="questionsDiv">
+                <p class="questionsFill">${questions[i].question}</p>
+                <div class="buttonDiv">
+                    <button class="buttonsAnswer" onClick="viewAnswer(this)">${questions[i].correct_answer}</button>
+                    <button class="buttonsAnswer" onClick="viewAnswer(this)">${questions[i].incorrect_answers[0]}</button>
+                </div>
                 <button class="exitButton" onClick="exitView(this)">Exit</button>
+            </div>
+            <div class="numeroPreguntas">
+                <p class="conteoPreguntas">${q} / ${questions.length} </p>
             </div>
             `
         }

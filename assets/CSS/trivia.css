@@ -85,21 +85,62 @@ nav {
     background-color: black;
 }
 
+.questionsDiv {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* background-color: red; */
+}
+
+.buttonDiv {
+    width: 90%;
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .questionsFill {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: larger;
     color: white;
 }
 
+.buttonsAnswer {
+    margin: 2%;
+    width: 20%;
+    height: 50%;
+}
+
 .exitButton {
     width: 10%;
+    height: 5%;
     display: flex;
     justify-content: center;
+    align-items: center ;
     background-color: white;
     border: none;
     border-radius: 10px 100px / 120px; ;
 }
 
-.scoreP {
+.conteoPreguntas {
     color: white;
+}
+
+.scoreP {
+    padding: 2%;
+    font-size: larger;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white;
+}
+
+.scorePantalla {
+    height: 95vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* background-color: red;    */
 }

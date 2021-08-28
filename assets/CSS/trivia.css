@@ -1,0 +1,105 @@
+*,
+html {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+nav {
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;  
+    color: white;  
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 150%;
+}
+
+.first-section {
+    height: 95vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../IMG/formula.jpg");
+    background-size: cover;
+}
+
+.triviaDiv {
+    width: 30%;
+    height: 50%;
+    border-radius: 5%;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../IMG/formula.jpg");
+    background-size: cover;
+
+}
+
+.triviaForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.general-label {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+    color: white;
+}
+
+.general-input {
+    padding: 5px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-bottom: 10%;
+    border: none;
+    background-color: rgba(255, 255, 255, 1);
+    /* color: white; */
+}
+
+/* .questionsDiv {
+    height: 100vh;
+    background-color: black;
+} */
+
+/* .questionsFill {
+    margin-top: 3%;
+    font-size: 20px;
+    background-color: red;
+    
+} */
+
+/* .answer {
+    width: 20%;
+    height: 3%;
+} */
+
+.question-Section {
+    width: 100%;
+    height: 95vh;
+    position: fixed;
+    z-index: 99999;
+    background-color: black;
+}
+
+.questionsFill {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: larger;
+    color: white;
+}
+
+.exitButton {
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    border: none;
+    border-radius: 10px 100px / 120px; ;
+}
+
+.scoreP {
+    color: white;
+}

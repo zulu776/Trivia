@@ -5,12 +5,14 @@ let container = document.getElementById("question-Section");
 let questions = [];     //Array with question from API
 let score = 0 ;         //Number of correct answers
 
+let ans = [];           //Array of answer.
 let i=0;                //Number of iterations per Question
-let q=i+1;
+let inc = 0;            //Count Incorrect answers
+let q = 1;              //Number of questions
 
 let correctAnswer;
 
-//funciones
+//
 const createApiURL = e => {
     e.preventDefault()
     let category = document.getElementById("category").value;
@@ -21,7 +23,7 @@ const createApiURL = e => {
     fetchDataAPI(API);
 };
 
-//Call responsive between formulary
+//Call response to formulary
 const fetchDataAPI = url => {
     fetch(url)
     .then(response => response.json())
@@ -36,12 +38,15 @@ const fillQuestions = questionsAPI => {
     console.log(amount.value);
     console.log(i);
     showQuestion();
+    console.log(questions[i].category)
+    
 };
 
 const showQuestion = () => {
-   console.log(i);
+    
     if(questions.length > 0){
         correctAnswer = questions[i].correct_answer;
+        randomAnswer();
 
         container.classList.add("question-Section");
 
@@ -51,16 +56,20 @@ const showQuestion = () => {
             <div class="questionsDiv">
                 <p class="questionsFill">${questions[i].question}</p>
                 <div class="buttonDiv">
-                    <button class="buttonsAnswer" onClick="viewAnswer(this)">${questions[i].correct_answer}</button>
-                    <button class="buttonsAnswer" onClick="viewAnswer(this)">${questions[i].incorrect_answers[0]}</button>
-                    <button class="buttonsAnswer" onClick="viewAnswer(this)">${questions[i].incorrect_answers[1]}</button>
-                    <button class="buttonsAnswer" onClick="viewAnswer(this)">${questions[i].incorrect_answers[2]}</button>
+                    <button class="buttonsAnswer" onClick="viewAnswer(this)">${ans[0]}</button>
+                    <button class="buttonsAnswer" onClick="viewAnswer(this)">${ans[1]}</button>
+                    <button class="buttonsAnswer" onClick="viewAnswer(this)">${ans[2]}</button>
+                    <button class="buttonsAnswer" onClick="viewAnswer(this)">${ans[3]}</button>
                 </div> 
                 <button class="exitButton" onClick="exitView(this)">Exit</button>
             </div>
             <div class="numeroPreguntas">
-                <p class="conteoPreguntas">${q} / ${questions.length} </p>
+            <div class="infoAnswer">
+                <p class="infoClass"> Correct Answers: ${score} </p>
+                <p class="infoClass"> Incorrect Answers: ${inc} </p>
             </div>
+            <p class="infoClass"> Question: ${q} / ${questions.length} </p>
+        </div>
             `
         } else {
             container.innerHTML =
@@ -68,19 +77,24 @@ const showQuestion = () => {
             <div class="questionsDiv">
                 <p class="questionsFill">${questions[i].question}</p>
                 <div class="buttonDiv">
-                    <button class="buttonsAnswer" onClick="viewAnswer(this)">${questions[i].correct_answer}</button>
-                    <button class="buttonsAnswer" onClick="viewAnswer(this)">${questions[i].incorrect_answers[0]}</button>
+                    <button class="buttonsAnswer" onClick="viewAnswer(this)">${ans[0]}</button>
+                    <button class="buttonsAnswer" onClick="viewAnswer(this)">${ans[1]}</button>
                 </div>
                 <button class="exitButton" onClick="exitView(this)">Exit</button>
             </div>
             <div class="numeroPreguntas">
-                <p class="conteoPreguntas">${q} / ${questions.length} </p>
+                <div class="infoAnswer">
+                    <p class="infoClass"> Correct Answers:     ${score} </p>
+                    <p class="infoClass"> Incorrect Answers:     ${inc} </p>
+                </div>
+                <p class="infoClass"> Question: ${q} / ${questions.length} </p>
             </div>
             `
         }
     } else {
 
-        alert("La cantidad de preguntas que elegiste es muy alto. Relaja tu cerebro y elige un número menor")
+        alert("La cantidad de preguntas que elegiste es muy alto. Relaja tu cerebro y elige un número menor");
+        location.reload();
     }
 
 };
@@ -90,11 +104,13 @@ const viewAnswer = button => {
         score++;
         console.log("Correcto");
     } else {
+        inc++;
         console.log("Incorrecto");
     }
 
     if(questions.length - 1 !== i) {
         i++;
+        q = i+1;
         showQuestion();
     } else {
         // container.classList.remove("question-Section");
@@ -121,6 +137,23 @@ const viewAnswer = button => {
             `
         }
         console.log(`Juego terminado.Tu Score fue de: ${score}`);
+    }
+}
+
+const randomAnswer = () => {
+    ans = [];
+    if(questions[i].incorrect_answers.length > 1){
+        ans.push(questions[i].correct_answer);
+        ans.push(questions[i].incorrect_answers[0]);
+        ans.push(questions[i].incorrect_answers[1]);
+        ans.push(questions[i].incorrect_answers[2]);
+        ans.sort(function() { return Math.random()-0.5});
+        console.log(ans);
+    } else {
+        ans.push(questions[i].correct_answer);
+        ans.push(questions[i].incorrect_answers[0]);
+        ans.sort(function() { return Math.random()-0.5});
+        console.log(ans);
     }
 }
 

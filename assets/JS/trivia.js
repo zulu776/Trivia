@@ -69,7 +69,7 @@ const showQuestion = () => {
                 <p class="infoClass"> Incorrect Answers: ${inc} </p>
             </div>
             <p class="infoClass"> Question: ${q} / ${questions.length} </p>
-        </div>
+            </div>
             `
         } else {
             container.innerHTML =

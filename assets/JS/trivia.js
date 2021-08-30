@@ -144,8 +144,9 @@ const viewAnswer = button => {
             container.innerHTML = 
             `
             <div class="scorePantalla">
-            <p class="scoreP">EXCELLENT!!!you are the kind of person my parents hope for a date for me</P>
-            <p class="scoreP">your Score was  </p>
+            <p class="scoreP">EXCELLENT!!!</p>
+            <p class="scoreP">You are the kind of person my parents hope for a date for me</P>
+            <p class="scoreP">Your Score was  </p>
             <p class="scoreP">${score}</p>
             <div class="infoAnswer">
                 <p class="infoClass"> Correct Answers:     ${cor} </p>
@@ -158,8 +159,8 @@ const viewAnswer = button => {
             container.innerHTML = 
             `
             <div class="scorePantalla">
-            <p class="scoreP">you haven't practiced enough</P>
-            <p class="scoreP">your Score was:  </p>
+            <p class="scoreP">You haven't practiced enough</P>
+            <p class="scoreP">Your Score was:  </p>
             <p class="scoreP">${score}</p>
             <div class="infoAnswer">
                 <p class="infoClass"> Correct Answers:     ${cor} </p>
@@ -218,8 +219,9 @@ const count = () => {
                         container.innerHTML = 
                         `
                         <div class="scorePantalla">
-                        <p class="scoreP">EXCELLENT!!!you are the kind of person my parents hope for a date for me</P>
-                        <p class="scoreP">your Score was  </p>
+                        <p class="scoreP">EXCELLENT!!!</p>
+                        <p class="scoreP">You are the kind of person my parents hope for a date for me</P>
+                        <p class="scoreP">Your Score was  </p>
                         <p class="scoreP">${score}</p>
                         <div class="infoAnswer">
                             <p class="infoClass"> Correct Answers:     ${cor} </p>
@@ -232,8 +234,8 @@ const count = () => {
                         container.innerHTML = 
                         `
                         <div class="scorePantalla">
-                        <p class="scoreP">you haven't practiced enough</P>
-                        <p class="scoreP">your Score was:  </p>
+                        <p class="scoreP">You haven't practiced enough</P>
+                        <p class="scoreP">Your Score was:  </p>
                         <p class="scoreP">${score}</p>
                         <div class="infoAnswer">
                             <p class="infoClass"> Correct Answers:     ${cor} </p>

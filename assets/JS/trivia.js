@@ -190,6 +190,7 @@ const count = () => {
                 clearInterval(id);
                 r = 0;
                 if(questions.length - 1 !== i) {
+                    inc++;
                     i++;
                     q = i+1;
                     showQuestion();

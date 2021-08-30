@@ -161,3 +161,17 @@ button:hover {
     /* background-color: red;    */
 }
 
+#myProgress {
+    width: 20%;
+    background-color: lightgray;
+    margin-bottom: 2%;
+}
+    
+#myBar {
+    width: 0%;
+    height: 20px;
+    background-color: gold;
+    text-align: center;
+    line-height: 20px;
+    color: black;
+}

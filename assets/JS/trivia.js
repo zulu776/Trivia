@@ -50,7 +50,7 @@ const showQuestion = () => {
         randomAnswer();
 
         container.classList.add("question-Section");
-        count();
+        
         if(questions[i].incorrect_answers.length > 1) {
             container.innerHTML = 
             `
@@ -75,6 +75,7 @@ const showQuestion = () => {
             <p class="infoClass"> Question: ${q} / ${questions.length} </p>
             </div>
             `
+         
         } else {
             container.innerHTML =
             `
@@ -98,6 +99,7 @@ const showQuestion = () => {
             </div>
             `
         }
+        count();
     } else {
 
         alert("La cantidad de preguntas que elegiste es muy alto. Relaja tu cerebro y elige un número menor");

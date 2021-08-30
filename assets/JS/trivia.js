@@ -57,8 +57,9 @@ const showQuestion = () => {
             container.innerHTML = 
             `
             <div class="questionsDiv">
+                <p class="infoClass2">Time:</p>
                 <div id="myProgress">
-                    <div id="myBar">0%</div>
+                    <div id="myBar">0 Sec</div>
                 </div>
                 <p class="questionsFill">${questions[i].question}</p>
                 <div class="buttonDiv">
@@ -82,8 +83,9 @@ const showQuestion = () => {
             container.innerHTML =
             `
             <div class="questionsDiv">
+                <p class="infoClass2">Time:</p>
                 <div id="myProgress">
-                    <div id="myBar">0%</div>
+                    <div id="myBar">0 Sec</div>
                 </div>
                 <p class="questionsFill">${questions[i].question}</p>
                 <div class="buttonDiv">
@@ -250,7 +252,7 @@ const count = () => {
             } else {
                 width++;           
                 elem.style.width = width + "%";
-                elem.innerHTML = (width/5)  + "s";
+                elem.innerHTML = (width/5)  + "Sec";
             }
         }
     }

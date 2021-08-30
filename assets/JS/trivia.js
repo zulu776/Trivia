@@ -10,6 +10,7 @@ let i=0;                //Number of iterations per Question
 let inc = 0;            //Count Incorrect answers
 let q = 1;              //Number of questions
 let r = 0;
+let id ;
 
 let correctAnswer;
 
@@ -109,6 +110,7 @@ const showQuestion = () => {
 };
 
 const viewAnswer = button => {
+
     if(button.innerText === correctAnswer) {
         score++;
         console.log("Correcto");
@@ -116,11 +118,15 @@ const viewAnswer = button => {
         inc++;
         console.log("Incorrecto");
     }
+    
 
     if(questions.length - 1 !== i) {
         i++;
         q = i+1;
         showQuestion();
+        r = 0;
+        clearInterval(id);
+        count();
     } else {
         // container.classList.remove("question-Section");
         container.innerHTML = "";
@@ -175,10 +181,10 @@ const exitView = button => {
 const count = () => {
     if (r == 0) {
         r = 1;
-        var elem = document.getElementById("myBar");
-        var width = 0;
+        let elem = document.getElementById("myBar");
+        let width = 0;
         
-        var id = setInterval(frame, 200);
+        id = setInterval(frame, 200);
         function frame() {
             if (width >= 100) {
                 clearInterval(id);

@@ -3,16 +3,17 @@ let mainForm = document.getElementById("triviaForm");
 let container = document.getElementById("question-Section");
 
 let questions = [];     //Array with question from API
-let score = 0 ;         //Number of correct answers
+let score = 0 ;         //Number of final score
 
 let ans = [];           //Array of answer.
 let i=0;                //Number of iterations per Question
 let inc = 0;            //Count Incorrect answers
+let cor = 0;            //Count Correct answers
 let q = 1;              //Number of questions
-let r = 0;
-let id ;
+let r = 0;              //Condition to continue filling te time bar
+let id ;                //Set interval Variable
 
-let correctAnswer;
+let correctAnswer;      //Variable of correct answer
 
 //
 const createApiURL = e => {
@@ -40,7 +41,7 @@ const fillQuestions = questionsAPI => {
     console.log(amount.value);
     console.log(i);
     showQuestion();
-    console.log(questions[i].category)
+    console.log(typeof(questions[i].difficulty))
     
 };
 
@@ -70,7 +71,7 @@ const showQuestion = () => {
             </div>
             <div class="numeroPreguntas">
             <div class="infoAnswer">
-                <p class="infoClass"> Correct Answers: ${score} </p>
+                <p class="infoClass"> Correct Answers: ${cor} </p>
                 <p class="infoClass"> Incorrect Answers: ${inc} </p>
             </div>
             <p class="infoClass"> Question: ${q} / ${questions.length} </p>
@@ -93,7 +94,7 @@ const showQuestion = () => {
             </div>
             <div class="numeroPreguntas">
                 <div class="infoAnswer">
-                    <p class="infoClass"> Correct Answers:     ${score} </p>
+                    <p class="infoClass"> Correct Answers:     ${cor} </p>
                     <p class="infoClass"> Incorrect Answers:     ${inc} </p>
                 </div>
                 <p class="infoClass"> Question: ${q} / ${questions.length} </p>
@@ -112,8 +113,17 @@ const showQuestion = () => {
 const viewAnswer = button => {
 
     if(button.innerText === correctAnswer) {
-        score++;
-        console.log("Correcto");
+        cor++;
+        if(questions[i].difficulty === "easy"){
+            score++;
+            console.log("Correcto1");
+        }else if (questions[i].difficulty === "medium"){
+            score= score + 2;
+            console.log("Correcto2");
+        }else{
+            score= score + 3;
+            console.log("Correcto3"); 
+        }
     } else {
         inc++;
         console.log("Incorrecto");
@@ -134,9 +144,13 @@ const viewAnswer = button => {
             container.innerHTML = 
             `
             <div class="scorePantalla">
-            <p class="scoreP">EXCELENTE CAMPEON!!!!!</P>
-            <p class="scoreP">TU SCORE FUE DE:  </p>
+            <p class="scoreP">EXCELLENT!!!  you are the kind of person that my parents expects a date with me</P>
+            <p class="scoreP">your Score was  </p>
             <p class="scoreP">${score}</p>
+            <div class="infoAnswer">
+                <p class="infoClass"> Correct Answers:     ${cor} </p>
+                <p class="infoClass"> Incorrect Answers:     ${inc} </p>
+            </div>
             <button onClick="exitView(this)">EXIT</button>
             </div>
             `
@@ -144,9 +158,13 @@ const viewAnswer = button => {
             container.innerHTML = 
             `
             <div class="scorePantalla">
-            <p class="scoreP">NO HAS PRACTICADO LO SUFIDICIENTE</P>
-            <p class="scoreP">TU SCORE FUE DE:  </p>
+            <p class="scoreP">you haven't practiced enough</P>
+            <p class="scoreP">your Score was:  </p>
             <p class="scoreP">${score}</p>
+            <div class="infoAnswer">
+                <p class="infoClass"> Correct Answers:     ${cor} </p>
+                <p class="infoClass"> Incorrect Answers:     ${inc} </p>
+            </div>
             <button onClick="exitView(this)">EXIT</button>
             </div>
             `
@@ -195,7 +213,6 @@ const count = () => {
                     q = i+1;
                     showQuestion();
                 } else {
-                    // container.classList.remove("question-Section");
                     container.innerHTML = "";
                     if(score > ((amount.value)/2)) {
                         container.innerHTML = 

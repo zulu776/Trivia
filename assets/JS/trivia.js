@@ -144,7 +144,7 @@ const viewAnswer = button => {
             container.innerHTML = 
             `
             <div class="scorePantalla">
-            <p class="scoreP">EXCELLENT!!!</p>
+            <p class="scoreP">EXCELLENT!</p>
             <p class="scoreP">You are the kind of person my parents hope for a date for me</P>
             <p class="scoreP">Your Score was  </p>
             <p class="scoreP">${score}</p>
@@ -219,7 +219,7 @@ const count = () => {
                         container.innerHTML = 
                         `
                         <div class="scorePantalla">
-                        <p class="scoreP">EXCELLENT!!!</p>
+                        <p class="scoreP">EXCELLENT!</p>
                         <p class="scoreP">You are the kind of person my parents hope for a date for me</P>
                         <p class="scoreP">Your Score was  </p>
                         <p class="scoreP">${score}</p>

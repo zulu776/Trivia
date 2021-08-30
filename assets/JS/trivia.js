@@ -61,6 +61,7 @@ const showQuestion = () => {
                 <div id="myProgress">
                     <div id="myBar">0 Sec</div>
                 </div>
+                <p class="infoClassQ"> Question: ${q} / ${questions.length} </p>
                 <p class="questionsFill">${questions[i].question}</p>
                 <div class="buttonDiv">
                     <button class="buttonsAnswer" onClick="viewAnswer(this)">${ans[0]}</button>
@@ -75,7 +76,6 @@ const showQuestion = () => {
                 <p class="infoClass"> Correct Answers: ${cor} </p>
                 <p class="infoClass"> Incorrect Answers: ${inc} </p>
             </div>
-            <p class="infoClass"> Question: ${q} / ${questions.length} </p>
             </div>
             `
          
@@ -87,6 +87,7 @@ const showQuestion = () => {
                 <div id="myProgress">
                     <div id="myBar">0 Sec</div>
                 </div>
+                <p class="infoClassQ"> Question: ${q} / ${questions.length} </p>
                 <p class="questionsFill">${questions[i].question}</p>
                 <div class="buttonDiv">
                     <button class="buttonsAnswer" onClick="viewAnswer(this)">${ans[0]}</button>
@@ -99,7 +100,6 @@ const showQuestion = () => {
                     <p class="infoClass"> Correct Answers:     ${cor} </p>
                     <p class="infoClass"> Incorrect Answers:     ${inc} </p>
                 </div>
-                <p class="infoClass"> Question: ${q} / ${questions.length} </p>
             </div>
             `
         }

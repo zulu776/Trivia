@@ -60,7 +60,7 @@ nav {
 }
 
 .inputCategory {
-    width: 20%;
+    width: 100%;
 }
 
 .question-Section {
@@ -140,6 +140,12 @@ button:hover {
     margin: 2%;
 }
 
+.infoClassQ {
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-bottom: 2%;
+}
+
 .infoClass {
     color: white;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -148,7 +154,7 @@ button:hover {
 .infoClass2 {
     color: white;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 200%;
+    font-size: 100%;
 }
 
 .scoreP {

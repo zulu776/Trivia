@@ -140,7 +140,7 @@ const viewAnswer = button => {
     } else {
         // container.classList.remove("question-Section");
         container.innerHTML = "";
-        if(score > ((amount.value)/2)) {
+        if(cor > ((amount.value)/2)) {
             container.innerHTML = 
             `
             <div class="scorePantalla">

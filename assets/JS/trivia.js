@@ -144,7 +144,7 @@ const viewAnswer = button => {
             container.innerHTML = 
             `
             <div class="scorePantalla">
-            <p class="scoreP">EXCELLENT!!!  you are the kind of person that my parents expects a date with me</P>
+            <p class="scoreP">EXCELLENT!!!you are the kind of person my parents hope for a date for me</P>
             <p class="scoreP">your Score was  </p>
             <p class="scoreP">${score}</p>
             <div class="infoAnswer">
@@ -218,9 +218,13 @@ const count = () => {
                         container.innerHTML = 
                         `
                         <div class="scorePantalla">
-                        <p class="scoreP">EXCELENTE CAMPEON!!!!!</P>
-                        <p class="scoreP">TU SCORE FUE DE:  </p>
+                        <p class="scoreP">EXCELLENT!!!you are the kind of person my parents hope for a date for me</P>
+                        <p class="scoreP">your Score was  </p>
                         <p class="scoreP">${score}</p>
+                        <div class="infoAnswer">
+                            <p class="infoClass"> Correct Answers:     ${cor} </p>
+                            <p class="infoClass"> Incorrect Answers:     ${inc} </p>
+                        </div>
                         <button onClick="exitView(this)">EXIT</button>
                         </div>
                         `
@@ -228,9 +232,13 @@ const count = () => {
                         container.innerHTML = 
                         `
                         <div class="scorePantalla">
-                        <p class="scoreP">NO HAS PRACTICADO LO SUFIDICIENTE</P>
-                        <p class="scoreP">TU SCORE FUE DE:  </p>
+                        <p class="scoreP">you haven't practiced enough</P>
+                        <p class="scoreP">your Score was:  </p>
                         <p class="scoreP">${score}</p>
+                        <div class="infoAnswer">
+                            <p class="infoClass"> Correct Answers:     ${cor} </p>
+                            <p class="infoClass"> Incorrect Answers:     ${inc} </p>
+                        </div>
                         <button onClick="exitView(this)">EXIT</button>
                         </div>
                         `

@@ -9,6 +9,7 @@ let ans = [];           //Array of answer.
 let i=0;                //Number of iterations per Question
 let inc = 0;            //Count Incorrect answers
 let q = 1;              //Number of questions
+let r = 0;
 
 let correctAnswer;
 
@@ -49,11 +50,14 @@ const showQuestion = () => {
         randomAnswer();
 
         container.classList.add("question-Section");
-
+        count();
         if(questions[i].incorrect_answers.length > 1) {
             container.innerHTML = 
             `
             <div class="questionsDiv">
+                <div id="myProgress">
+                    <div id="myBar">0%</div>
+                </div>
                 <p class="questionsFill">${questions[i].question}</p>
                 <div class="buttonDiv">
                     <button class="buttonsAnswer" onClick="viewAnswer(this)">${ans[0]}</button>
@@ -75,6 +79,9 @@ const showQuestion = () => {
             container.innerHTML =
             `
             <div class="questionsDiv">
+                <div id="myProgress">
+                    <div id="myBar">0%</div>
+                </div>
                 <p class="questionsFill">${questions[i].question}</p>
                 <div class="buttonDiv">
                     <button class="buttonsAnswer" onClick="viewAnswer(this)">${ans[0]}</button>
@@ -163,6 +170,55 @@ const exitView = button => {
     location.reload();
 }
 
+const count = () => {
+    if (r == 0) {
+        r = 1;
+        var elem = document.getElementById("myBar");
+        var width = 0;
+        
+        var id = setInterval(frame, 200);
+        function frame() {
+            if (width >= 100) {
+                clearInterval(id);
+                r = 0;
+                if(questions.length - 1 !== i) {
+                    i++;
+                    q = i+1;
+                    showQuestion();
+                } else {
+                    // container.classList.remove("question-Section");
+                    container.innerHTML = "";
+                    if(score > ((amount.value)/2)) {
+                        container.innerHTML = 
+                        `
+                        <div class="scorePantalla">
+                        <p class="scoreP">EXCELENTE CAMPEON!!!!!</P>
+                        <p class="scoreP">TU SCORE FUE DE:  </p>
+                        <p class="scoreP">${score}</p>
+                        <button onClick="exitView(this)">EXIT</button>
+                        </div>
+                        `
+                    } else {
+                        container.innerHTML = 
+                        `
+                        <div class="scorePantalla">
+                        <p class="scoreP">NO HAS PRACTICADO LO SUFIDICIENTE</P>
+                        <p class="scoreP">TU SCORE FUE DE:  </p>
+                        <p class="scoreP">${score}</p>
+                        <button onClick="exitView(this)">EXIT</button>
+                        </div>
+                        `
+                    }
+                    console.log(`Juego terminado.Tu Score fue de: ${score}`);
+                }
+            } else {
+                width++;           
+                elem.style.width = width + "%";
+                elem.innerHTML = (width/5)  + "s";
+            }
+        }
+    }
+}
 
 //Events
 mainForm.onsubmit = createApiURL;
